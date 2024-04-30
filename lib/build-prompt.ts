@@ -104,10 +104,13 @@ export async function buildFinalMessages(
     }
   }
 
+  console.log("remainingTokens = ", remainingTokens)
+
   let tempSystemMessage: Tables<"messages"> = {
     chat_id: "",
     assistant_id: null,
     content: BUILT_PROMPT,
+    content_tr: BUILT_PROMPT,
     created_at: "",
     id: processedChatMessages.length + "",
     image_paths: [],
@@ -221,6 +224,7 @@ export async function buildGoogleGeminiFinalMessages(
     chat_id: "",
     assistant_id: null,
     content: BUILT_PROMPT,
+    content_tr: BUILT_PROMPT,
     created_at: "",
     id: chatMessages.length + "",
     image_paths: [],

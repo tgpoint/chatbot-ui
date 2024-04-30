@@ -16,6 +16,7 @@ CREATE TABLE IF NOT EXISTS messages (
 
     -- REQUIRED
     content TEXT NOT NULL CHECK (char_length(content) <= 1000000),
+    content_tr TEXT NOT NULL CHECK (char_length(content) <= 1000000),
     image_paths TEXT[] NOT NULL, -- file paths in message_images bucket
     model TEXT NOT NULL CHECK (char_length(model) <= 1000),
     role TEXT NOT NULL CHECK (char_length(role) <= 1000),

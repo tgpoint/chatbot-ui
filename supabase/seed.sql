@@ -83,7 +83,7 @@ BEGIN
     ('e9fc7e46-a8a5-4fd4-8ba7-af485013e6fa', workspace1_id, 'Chat 4', 'gpt-4-turbo', 'You are an assistant.', 0.5, 4000, TRUE, TRUE, folder1_id, 'openai');
   END;
 
-  -- Start data for messages 
+ /*  -- Start data for messages 
   -- Get chat ids
     DECLARE
       chat1_id UUID;
@@ -101,7 +101,7 @@ BEGIN
       ('e9fc7e46-a8a5-4fd4-8ba7-af485013e6fa', chat1_id, 'Can you assist me with my homework? This is a seventh long message with 1. numbered list markdown. It contains a plethora of sentences and paragraphs. Let me add even more content to this message. As a user, I can interact with the AI assistant in a variety of ways. I can ask it to generate text, answer questions, and even write code. The assistant uses a powerful language model to understand my requests and generate appropriate responses. This is a very interesting and exciting technology!', 'user', 'gpt-4-turbo', 6, '{}'),
       ('e9fc7e46-a8a5-4fd4-8ba7-af485013e6fa', chat1_id, 'Sure, I would be happy to help. What do you need assistance with? This is an eighth long message with --- horizontal rule markdown. It contains a multitude of sentences and paragraphs. Let me add even more content to this message. As an AI assistant, I can understand and respond to a wide range of requests. I can generate text, answer questions, and even write code. I use a powerful language model to understand your requests and generate appropriate responses. This is a very interesting and exciting technology!', 'assistant', 'gpt-4-turbo', 7, '{}'),
       ('e9fc7e46-a8a5-4fd4-8ba7-af485013e6fa', chat1_id, 'I need help with my math homework. This is a ninth long message with # heading markdown. It contains a vast number of sentences and paragraphs. Let me add even more content to this message. As a user, I can interact with the AI assistant in a variety of ways. I can ask it to generate text, answer questions, and even write code. The assistant uses a powerful language model to understand my requests and generate appropriate responses. This is a very interesting and exciting technology!', 'user', 'gpt-4-turbo', 8, '{}');
-    END;
+    END; */
 
   -- Start data for prompts 
   INSERT INTO prompts (user_id, folder_id, created_at, updated_at, sharing, content, name) VALUES 

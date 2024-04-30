@@ -81,6 +81,7 @@ export const handleRetrieval = async (
 
 export const createTempMessages = (
   messageContent: string,
+  messageContent_tr: string,
   chatMessages: ChatMessage[],
   chatSettings: ChatSettings,
   b64Images: string[],
@@ -88,11 +89,14 @@ export const createTempMessages = (
   setChatMessages: React.Dispatch<React.SetStateAction<ChatMessage[]>>,
   selectedAssistant: Tables<"assistants"> | null
 ) => {
+  console.log("createTempMessages: ", messageContent)
+
   let tempUserChatMessage: ChatMessage = {
     message: {
       chat_id: "",
       assistant_id: null,
-      content: messageContent,
+      content: messageContent_tr,
+      content_tr: messageContent,
       created_at: "",
       id: uuidv4(),
       image_paths: b64Images,
@@ -110,6 +114,7 @@ export const createTempMessages = (
       chat_id: "",
       assistant_id: selectedAssistant?.id || null,
       content: "",
+      content_tr: "",
       created_at: "",
       id: uuidv4(),
       image_paths: [],
@@ -257,6 +262,9 @@ export const fetchChatResponse = async (
   setIsGenerating: React.Dispatch<React.SetStateAction<boolean>>,
   setChatMessages: React.Dispatch<React.SetStateAction<ChatMessage[]>>
 ) => {
+  console.log("fetchChatResponse")
+  console.log(body)
+
   const response = await fetch(url, {
     method: "POST",
     body: JSON.stringify(body),
@@ -393,7 +401,9 @@ export const handleCreateMessages = async (
   profile: Tables<"profiles">,
   modelData: LLM,
   messageContent: string,
+  messageContent_tr: string,
   generatedText: string,
+  generatedText_tr: string,
   newMessageImages: MessageImage[],
   isRegeneration: boolean,
   retrievedFileItems: Tables<"file_items">[],
@@ -404,11 +414,14 @@ export const handleCreateMessages = async (
   setChatImages: React.Dispatch<React.SetStateAction<MessageImage[]>>,
   selectedAssistant: Tables<"assistants"> | null
 ) => {
+  console.log("handleCreateMessages")
+
   const finalUserMessage: TablesInsert<"messages"> = {
     chat_id: currentChat.id,
     assistant_id: null,
     user_id: profile.user_id,
-    content: messageContent,
+    content: messageContent_tr,
+    content_tr: messageContent,
     model: modelData.modelId,
     role: "user",
     sequence_number: chatMessages.length,
@@ -420,6 +433,7 @@ export const handleCreateMessages = async (
     assistant_id: selectedAssistant?.id || null,
     user_id: profile.user_id,
     content: generatedText,
+    content_tr: generatedText_tr,
     model: modelData.modelId,
     role: "assistant",
     sequence_number: chatMessages.length + 1,

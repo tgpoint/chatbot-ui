@@ -22,6 +22,27 @@ import {
   validateChatSettings
 } from "../chat-helpers"
 
+export async function translate(src: string, from: string, to: string) {
+  const gkey = process.env.NEXT_PUBLIC_GOOGLE_TRANSLATE_API_KEY
+  let translateUrl = "https://translation.googleapis.com/language/translate/v2"
+
+  const data = await fetch(translateUrl, {
+    method: "POST",
+    headers: {
+      "X-goog-api-key": gkey as any
+    },
+    body: JSON.stringify({
+      q: [src],
+      target: to,
+      source: from,
+      format: "text"
+    })
+  })
+
+  const translation = await data.json()
+  return translation.data.translations[0].translatedText
+}
+
 export const useChatHandler = () => {
   const router = useRouter()
 
@@ -195,6 +216,10 @@ export const useChatHandler = () => {
   ) => {
     const startingInput = messageContent
 
+    console.log("handleSendMessage 1")
+    let messageContent_tr = await translate(messageContent, "ru", "en")
+    console.log(messageContent, messageContent_tr)
+
     try {
       setUserInput("")
       setIsGenerating(true)
@@ -251,6 +276,7 @@ export const useChatHandler = () => {
       const { tempUserChatMessage, tempAssistantChatMessage } =
         createTempMessages(
           messageContent,
+          messageContent_tr,
           chatMessages,
           chatSettings!,
           b64Images,
@@ -364,13 +390,19 @@ export const useChatHandler = () => {
         })
       }
 
+      console.log("handleSendMessage 2")
+      let generatedText_tr = await translate(generatedText, "en", "ru")
+      console.log(generatedText, generatedText_tr)
+
       await handleCreateMessages(
         chatMessages,
         currentChat,
         profile!,
         modelData!,
         messageContent,
+        messageContent_tr,
         generatedText,
+        generatedText_tr,
         newMessageImages,
         isRegeneration,
         retrievedFileItems,

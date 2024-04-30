@@ -105,8 +105,9 @@ export const Message: FC<MessageProps> = ({
 
   const handleRegenerate = async () => {
     setIsGenerating(true)
+
     await handleSendMessage(
-      editedMessage || chatMessages[chatMessages.length - 2].message.content,
+      editedMessage || chatMessages[chatMessages.length - 2].message.content_tr,
       chatMessages,
       true
     )
@@ -117,7 +118,7 @@ export const Message: FC<MessageProps> = ({
   }
 
   useEffect(() => {
-    setEditedMessage(message.content)
+    setEditedMessage(message.content_tr)
 
     if (isEditing && editInputRef.current) {
       const input = editInputRef.current
@@ -304,8 +305,10 @@ export const Message: FC<MessageProps> = ({
               onValueChange={setEditedMessage}
               maxRows={20}
             />
-          ) : (
+          ) : isGenerating && isLast && message.role === "assistant" ? (
             <MessageMarkdown content={message.content} />
+          ) : (
+            <MessageMarkdown content={message.content_tr} />
           )}
         </div>
 
