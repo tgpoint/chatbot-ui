@@ -10,6 +10,8 @@ export type LLMID =
 
 // OpenAI Models (UPDATED 1/29/24)
 export type OpenAILLMID =
+  | "gpt-4o" // GPT-4 Omni
+  | "gpt-4o-mini" // GPT-4 Omni Mini
   | "gpt-4-turbo" // GPT-4 Turbo
   | "gpt-4-vision-preview" // GPT-4 Vision
   | "gpt-4" // GPT-4

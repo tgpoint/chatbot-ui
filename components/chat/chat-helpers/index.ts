@@ -263,7 +263,7 @@ export const fetchChatResponse = async (
   setChatMessages: React.Dispatch<React.SetStateAction<ChatMessage[]>>
 ) => {
   console.log("fetchChatResponse")
-  console.log(body)
+  console.log(url, body, isHosted)
 
   const response = await fetch(url, {
     method: "POST",

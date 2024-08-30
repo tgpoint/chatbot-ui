@@ -218,6 +218,7 @@ export const useChatHandler = () => {
 
     console.log("handleSendMessage 1")
     let messageContent_tr = await translate(messageContent, "ru", "en")
+    //let messageContent_tr = messageContent
     console.log(messageContent, messageContent_tr)
 
     try {
@@ -392,6 +393,8 @@ export const useChatHandler = () => {
 
       console.log("handleSendMessage 2")
       let generatedText_tr = await translate(generatedText, "en", "ru")
+      //let generatedText_tr = generatedText
+      //=========================================
       console.log(generatedText, generatedText_tr)
 
       await handleCreateMessages(
