@@ -26,7 +26,7 @@ export async function POST(request: Request) {
       case "gpt-4o-mini":
         DEPLOYMENT_ID = profile.azure_openai_45_turbo_id || ""
         break
-      case "o3-mini":
+      case "o1-mini":
         DEPLOYMENT_ID = profile.azure_openai_45_vision_id || ""
         break
       default:

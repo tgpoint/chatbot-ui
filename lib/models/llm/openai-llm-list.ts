@@ -53,11 +53,11 @@ const GPT4O1: LLM = {
 }
 
 // GPT-4 Vision (UPDATED 12/18/23)
-const GPT4O3Mini: LLM = {
-  modelId: "o3-mini",
-  modelName: "O3 Mini",
+const GPT4O1Mini: LLM = {
+  modelId: "o1-mini",
+  modelName: "O1 Mini",
   provider: "openai",
-  hostedId: "o3-mini",
+  hostedId: "o1-mini",
   platformLink: OPENAI_PLATORM_LINK,
   imageInput: true,
   pricing: {
@@ -72,5 +72,5 @@ export const OPENAI_LLM_LIST: LLM[] = [
   GPT4Omni,
   GPT4OmniMini,
   GPT4O1,
-  GPT4O3Mini
+  GPT4O1Mini
 ]

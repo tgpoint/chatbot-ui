@@ -9,7 +9,7 @@ export type LLMID =
   | PerplexityLLMID
 
 // OpenAI Models (UPDATED 1/29/24)
-export type OpenAILLMID = "gpt-4o" | "gpt-4o-mini" | "o1" | "o3-mini"
+export type OpenAILLMID = "gpt-4o" | "gpt-4o-mini" | "o1" | "o1-mini"
 
 // Google Models
 export type GoogleLLMID =

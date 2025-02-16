@@ -77,7 +77,7 @@ export const GlobalState: FC<GlobalStateProps> = ({ children }) => {
   const [userInput, setUserInput] = useState<string>("")
   const [chatMessages, setChatMessages] = useState<ChatMessage[]>([])
   const [chatSettings, setChatSettings] = useState<ChatSettings>({
-    model: "o3-mini",
+    model: "o1-mini",
     prompt: "You are a helpful AI assistant.",
     temperature: 0.5,
     contextLength: 4000,
