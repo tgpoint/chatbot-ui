@@ -15,8 +15,8 @@ const GPT4Omni: LLM = {
   pricing: {
     currency: "USD",
     unit: "1M tokens",
-    inputCost: 5,
-    outputCost: 15
+    inputCost: 2.5,
+    outputCost: 10
   }
 }
 
@@ -37,66 +37,40 @@ const GPT4OmniMini: LLM = {
 }
 
 // GPT-4 Turbo (UPDATED 1/25/24)
-const GPT4Turbo: LLM = {
-  modelId: "gpt-4-turbo",
-  modelName: "GPT-4 Turbo",
+const GPT4O1: LLM = {
+  modelId: "o1",
+  modelName: "O1",
   provider: "openai",
-  hostedId: "gpt-4-turbo",
+  hostedId: "o1",
   platformLink: OPENAI_PLATORM_LINK,
   imageInput: false,
   pricing: {
     currency: "USD",
     unit: "1M tokens",
-    inputCost: 10,
-    outputCost: 30
+    inputCost: 15,
+    outputCost: 60
   }
 }
 
 // GPT-4 Vision (UPDATED 12/18/23)
-const GPT4Vision: LLM = {
-  modelId: "gpt-4-vision-preview",
-  modelName: "GPT-4 Vision",
+const GPT4O3Mini: LLM = {
+  modelId: "o3-mini",
+  modelName: "O3 Mini",
   provider: "openai",
-  hostedId: "gpt-4-vision-preview",
+  hostedId: "o3-mini",
   platformLink: OPENAI_PLATORM_LINK,
   imageInput: true,
   pricing: {
     currency: "USD",
     unit: "1M tokens",
-    inputCost: 10
+    inputCost: 1.1,
+    outputCost: 4.4
   }
 }
 
-// GPT-4 (UPDATED 1/29/24)
-const GPT4: LLM = {
-  modelId: "gpt-4",
-  modelName: "GPT-4",
-  provider: "openai",
-  hostedId: "gpt-4",
-  platformLink: OPENAI_PLATORM_LINK,
-  imageInput: false,
-  pricing: {
-    currency: "USD",
-    unit: "1M tokens",
-    inputCost: 30,
-    outputCost: 60
-  }
-}
-
-// GPT-3.5 Turbo (UPDATED 1/25/24)
-const GPT3_5Turbo: LLM = {
-  modelId: "gpt-3.5-turbo",
-  modelName: "GPT-3.5 Turbo",
-  provider: "openai",
-  hostedId: "gpt-3.5-turbo",
-  platformLink: OPENAI_PLATORM_LINK,
-  imageInput: false,
-  pricing: {
-    currency: "USD",
-    unit: "1M tokens",
-    inputCost: 0.5,
-    outputCost: 1.5
-  }
-}
-
-export const OPENAI_LLM_LIST: LLM[] = [GPT4Omni, GPT4OmniMini]
+export const OPENAI_LLM_LIST: LLM[] = [
+  GPT4Omni,
+  GPT4OmniMini,
+  GPT4O1,
+  GPT4O3Mini
+]
