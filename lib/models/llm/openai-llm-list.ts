@@ -59,7 +59,7 @@ const GPT4O1Mini: LLM = {
   provider: "openai",
   hostedId: "o1-mini",
   platformLink: OPENAI_PLATORM_LINK,
-  imageInput: true,
+  imageInput: false,
   pricing: {
     currency: "USD",
     unit: "1M tokens",
